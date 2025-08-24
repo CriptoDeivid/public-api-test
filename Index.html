@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>API Tester con Auth</title>
+  <link rel="stylesheet" href="./css/Styles.css">
+</head>
+<body>
+  <main>
+    <!-- 1. Login -->
+    <section class="card">
+      <h2>1) Login</h2>
+      <div class="row">
+        <input id="username" placeholder="username" value="emilys">
+        <input id="password" type="password" placeholder="password" value="emilyspass">
+        <input id="expMins" type="number" value="1" min="1">
+        <button id="btnLogin">Login</button>
+      </div>
+      <pre id="loginOut">—</pre>
+    </section>
+
+    <!-- 2. Llamada a /auth/me -->
+    <section class="card">
+      <h2>2) Llamar /auth/me</h2>
+      <div class="row">
+        <button id="btnMe">Llamar</button>
+        <button id="btnForceExpire" class="warn">Forzar expiración access</button>
+      </div>
+      <pre id="meOut">—</pre>
+    </section>
+
+    <!-- 3. Estado de tokens -->
+    <section class="card">
+      <h2>3) Estado de tokens</h2>
+      <div class="row">
+        <span class="pill"><strong>Access exp:</strong> <span id="accExp">—</span></span>
+        <span class="pill"><strong>Refresh:</strong> <span id="hasRef">—</span></span>
+        <span class="pill"><strong>Skew:</strong> <span id="skew">1.5s</span></span>
+      </div>
+      <div class="row">
+        <button id="btnToggleRefresh" class="warn">Auto-refresh: OFF</button>
+      </div>
+      <pre id="tokenOut">—</pre>
+    </section>
+
+    <!-- 4. API Tester genérico -->
+    <section class="card">
+      <h2>4) API Tester</h2>
+      <div class="row">
+        <input id="reqUrl" placeholder="https://dummyjson.com/auth/me">
+        <select id="reqMethod">
+          <option>GET</option>
+          <option>POST</option>
+          <option>PUT</option>
+          <option>DELETE</option>
+        </select>
+      </div>
+      <textarea id="reqHeaders" placeholder='{"Content-Type":"application/json"}'></textarea>
+      <textarea id="reqBody" placeholder='{"key":"value"}'></textarea>
+      <button id="btnSend">Enviar Request</button>
+      <pre id="reqOut">—</pre>
+    </section>
+
+    <!-- 5. Log de acciones -->
+    <section class="card">
+      <h2>Log</h2>
+      <pre id="logOut">—</pre>
+    </section>
+  </main>
+
+  <script src="./css/js/app.js"></script>
+  <script src="./css/js/apitester.js"></script>
+</body>
+</html>
